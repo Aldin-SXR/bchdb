@@ -1,2 +1,5 @@
 .vscode/
 vendor/
+tests/build/
+.env
+.phpunit.result.cache
