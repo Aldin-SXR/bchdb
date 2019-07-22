@@ -1,5 +1,5 @@
 language: php
 script:
-  - sudo apt install php-mongodb 
+  - pecl install -f mongodb-stable
   - composer install
   - phpunit --testdox
