@@ -1,0 +1,19 @@
+{
+    "name": "aldin-sxr/bchdb",
+    "description": "Bitcoin Cash blockchain indexer.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aldin Kovačević",
+            "email": "aldin.kovacevic.97@gmail.com"
+        }
+    ],
+    "require": {
+        "mongodb/mongodb": "^1.4",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.2"
+    }
+}
