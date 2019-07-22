@@ -1,5 +1,0 @@
-language: php
-script:
-  - pecl install -f mongodb-stable
-  - composer install
-  - phpunit --testdox
