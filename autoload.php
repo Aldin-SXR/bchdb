@@ -10,6 +10,10 @@ require_once __DIR__.'/vendor/autoload.php';
 use Dotenv\Dotenv;
 
 /* Load environment variables */
-$dotenv = Dotenv::create(__DIR__);
-$dotenv->load();
+try {
+    $dotenv = Dotenv::create(__DIR__);
+    $dotenv->load();
+} catch (\Throwable $e) {
+    echo "No environment files (.env) found.";
+}
 
