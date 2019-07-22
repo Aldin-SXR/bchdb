@@ -15,8 +15,8 @@ class EnvClient {
      * Assign the environment superglobal to the 'env' property.
      * @return EnvClient
      */
-    public function __construct() {
-        $this->env = &$_ENV;
+    public function __construct($env) {
+        $this->env = &$env;
     }
 
     /**

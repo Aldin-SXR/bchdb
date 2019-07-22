@@ -22,7 +22,7 @@ class RpcClient {
      * @return RpcClient
      */
     public function __construct() {
-        $this->env = new EnvClient();
+        $this->env = new EnvClient($_ENV);
         $this->client = new Client([
             'base_uri' => $this->env->get('RPC_HOST').':'.$this->env->get('RPC_PORT')
         ]);
@@ -65,7 +65,7 @@ class RpcClient {
             $response = json_decode($this->execute_rpc_call($name, $rpc_arguments), true);
             return $response['result'];
         } catch (\Throwable $e) {
-            echo $e->getMessage();
+            print_r($e->getMessage());
         }
     }
 }
