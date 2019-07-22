@@ -1,0 +1,4 @@
+language: php
+script:
+  - composer install
+  - phpunit --testdox
