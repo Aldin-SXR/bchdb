@@ -13,7 +13,7 @@ class EnvClientTest extends TestCase {
     private static $env;
 
     public function testSuccessfullyCreatesAClient() {
-        self::$env = new EnvClient();
+        self::$env = new EnvClient($_ENV);
         $this->assertInstanceOf(EnvClient::class, self::$env);
     }
 
