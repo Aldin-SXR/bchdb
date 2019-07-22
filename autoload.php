@@ -14,6 +14,6 @@ try {
     $dotenv = Dotenv::create(__DIR__);
     $dotenv->load();
 } catch (\Throwable $e) {
-    echo "No environment files (.env) found.";
+    print_r("No environment files (.env) found.");
 }
 

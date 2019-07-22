@@ -14,14 +14,17 @@ use GuzzleHttp\Client;
 class RpcClient {
     /** @var GuzzleHttp\Client $client Guzzle HTTP client. */
     private $client;
+    /** @var EnvClient $env Access to environment variables. */
+    private $env;
 
     /**
      * Create an RPC client.
      * @return RpcClient
      */
     public function __construct() {
+        $this->env = new EnvClient($_ENV);
         $this->client = new Client([
-            'base_uri' => $_ENV['RPC_HOST'].':'.$_ENV['RPC_PORT']
+            'base_uri' => $this->env->get('RPC_HOST').':'.$this->env->get('RPC_PORT')
         ]);
     }
 
@@ -34,7 +37,7 @@ class RpcClient {
      */
     private function execute_rpc_call($method, $params) {
         $response = $this->client->request('POST', '/', [
-            'auth' => [ $_ENV['RPC_USER'], $_ENV['RPC_PASSWORD'] ],
+            'auth' => [ $this->env->get('RPC_USER'), $this->env->get('RPC_PASSWORD') ],
             'body' => '{
                 "jsonrpc": "1.0",
                 "id": "bchdb-'.Util::random_id().'",
@@ -62,7 +65,7 @@ class RpcClient {
             $response = json_decode($this->execute_rpc_call($name, $rpc_arguments), true);
             return $response['result'];
         } catch (\Throwable $e) {
-            echo $e->getMessage();
+            print_r($e->getMessage());
         }
     }
 }
