@@ -1,5 +1,5 @@
 language: php
 script:
-  - sudo apt-get install php7.2-mongodb
+  - sudo apt install php-mongodb 
   - composer install
   - phpunit --testdox
