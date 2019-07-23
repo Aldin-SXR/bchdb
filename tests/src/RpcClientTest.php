@@ -1,6 +1,6 @@
 <?php
 use PHPUnit\Framework\TestCase;
-use BCHDB\RpcClient;
+use BCHDB\Client\RpcClient;
 
 require_once __DIR__.'/../../autoload.php';
 

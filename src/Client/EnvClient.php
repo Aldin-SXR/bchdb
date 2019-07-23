@@ -1,6 +1,6 @@
 <?php
 
-namespace BCHDB;
+namespace BCHDB\Client;
 
 /**
  * Environment client for encapsulating superglobal variables.
@@ -15,8 +15,8 @@ class EnvClient {
      * Assign the environment superglobal to the 'env' property.
      * @return EnvClient
      */
-    public function __construct($env) {
-        $this->env = &$env;
+    public function __construct() {
+        $this->env = &$_ENV;
     }
 
     /**

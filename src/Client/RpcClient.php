@@ -1,7 +1,8 @@
 <?php
 
-namespace BCHDB;
+namespace BCHDB\Client;
 use GuzzleHttp\Client;
+use BCHDB\Util;
 
 /**
  * RpcClient.
@@ -22,7 +23,7 @@ class RpcClient {
      * @return RpcClient
      */
     public function __construct() {
-        $this->env = new EnvClient($_ENV);
+        $this->env = new EnvClient();
         $this->client = new Client([
             'base_uri' => $this->env->get('RPC_HOST').':'.$this->env->get('RPC_PORT')
         ]);

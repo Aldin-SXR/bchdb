@@ -24,4 +24,18 @@ class Util {
         }
         return implode('', $pieces);
     }
+
+    public static function to_array($object) {
+        return json_decode(json_encode($object), true);
+    }
+
+    public static function array_filter_recursive(&$array) {
+        foreach ($array as $key => $item) {
+            is_array($item) && !empty($item) && $array[$key] = self::array_filter_recursive($item);
+            if (is_array($array) && $array[$key] === NULL) {
+                unset($array[$key]);
+            }
+        }
+        return $array;
+    } 
 }

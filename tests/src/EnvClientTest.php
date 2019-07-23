@@ -1,6 +1,6 @@
 <?php
 use PHPUnit\Framework\TestCase;
-use BCHDB\EnvClient;
+use BCHDB\Client\EnvClient;
 
 require_once __DIR__.'/../../autoload.php';
 
@@ -13,7 +13,7 @@ class EnvClientTest extends TestCase {
     private static $env;
 
     public function testSuccessfullyCreatesAClient() {
-        self::$env = new EnvClient($_ENV);
+        self::$env = new EnvClient();
         $this->assertInstanceOf(EnvClient::class, self::$env);
     }
 
