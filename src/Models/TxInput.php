@@ -7,6 +7,7 @@ class TxInput {
     public $i;
     public $a;
     public $h;
+    public $str;
 
     public function value($v) {
         $this->v = $v;
@@ -25,6 +26,11 @@ class TxInput {
 
     public function hash($h) {
         $this->h = $h;
+        return $this;
+    }
+
+    public function string($str) {
+        $this->str = $str;
         return $this;
     }
 }

@@ -6,6 +6,7 @@ class TxOutput {
     public $v;
     public $o;
     public $a;
+    public $str;
 
     public function value($v) {
         $this->v = $v;
@@ -19,6 +20,11 @@ class TxOutput {
 
     public function address($a) {
         $this->a = $a;
+        return $this;
+    }
+
+    public function string($str) {
+        $this->str = $str;
         return $this;
     }
 }
