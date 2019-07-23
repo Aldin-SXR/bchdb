@@ -3,22 +3,22 @@
 namespace BCHDB\Models;
 
 class Block {
-    public $i;
-    public $h;
-    public $ts;
+    public $height;
+    public $hash;
+    public $timestamp;
 
-    public function height($i) {
-        $this->i = $i;
+    public function height($height) {
+        $this->height = $height;
         return $this;
     }
 
-    public function hash($h) {
-        $this->h = $h;
+    public function hash($hash) {
+        $this->hash = $hash;
         return $this;
     }
 
-    public function timestamp($ts) {
-        $this->ts = $ts;
+    public function timestamp($timestamp) {
+        $this->timestamp = $timestamp;
         return $this;
     }
 }

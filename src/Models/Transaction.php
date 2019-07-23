@@ -4,27 +4,27 @@ namespace BCHDB\Models;
 
 class Transaction {
     public $_id;
-    public $in;
-    public $out;
-    public $blk;
+    public $input;
+    public $output;
+    public $block;
 
     public function hash($_id) {
         $this->_id = $_id;
         return $this;
     }
 
-    public function input($in) {
-        $this->in = $in;
+    public function input($input) {
+        $this->input = $input;
         return $this;
     }
 
-    public function output($out) {
-        $this->out = $out;
+    public function output($output) {
+        $this->output = $output;
         return $this;
     }
 
-    public function block($blk) {
-        $this->blk = $blk;
+    public function block($block) {
+        $this->block = $block;
         return $this;
     }
 }
