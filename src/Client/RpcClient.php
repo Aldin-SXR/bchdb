@@ -2,7 +2,7 @@
 
 namespace BCHDB\Client;
 use GuzzleHttp\Client;
-use BCHDB\Util;
+use BCHDB\Util\Util;
 
 /**
  * RpcClient.
