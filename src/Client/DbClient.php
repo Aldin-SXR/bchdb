@@ -21,6 +21,12 @@ class DbClient {
         return $this;
     }
 
+    public function index($indices) {
+        foreach ($indices as $index) {
+            $this->collection->createIndex($index);
+        }
+    }
+
     public function insert($data) {
         $this->collection->insertOne($data);
     }
