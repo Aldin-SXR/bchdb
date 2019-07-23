@@ -4,3 +4,4 @@ tests/build/
 .env
 .phpunit.result.cache
 checkpoint
+bchdb_test.sh

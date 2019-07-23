@@ -3,34 +3,34 @@
 namespace BCHDB\Models;
 
 class TxInput {
-    public $v;
-    public $i;
-    public $a;
-    public $h;
-    public $str;
+    public $value;
+    public $vin;
+    public $address;
+    public $hash;
+    public $scriptSig;
 
-    public function value($v) {
-        $this->v = $v;
+    public function value($value) {
+        $this->value = $value;
         return $this;
     }
 
-    public function input($i) {
-        $this->i = $i;
+    public function input($vin) {
+        $this->vin = $vin;
         return $this;
     }
 
-    public function address($a) {
-        $this->a = $a;
+    public function address($address) {
+        $this->address = $address;
         return $this;
     }
 
-    public function hash($h) {
-        $this->h = $h;
+    public function hash($hash) {
+        $this->hash = $hash;
         return $this;
     }
 
-    public function string($str) {
-        $this->str = $str;
+    public function string($scriptSig) {
+        $this->scriptSig = $scriptSig;
         return $this;
     }
 }

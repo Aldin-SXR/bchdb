@@ -32,7 +32,6 @@ class Util {
      * @return array Output array.
      */
     public static function to_array($object) {
-        $a = json_encode($object);
         return json_decode(json_encode($object), true);
     }
 
