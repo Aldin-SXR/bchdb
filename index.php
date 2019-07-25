@@ -59,7 +59,7 @@ for ($blk = $checkpoint; $blk <= $current_height; $blk++) {
                                                             ->value($is_coinbase ? 0 : $prev_txo[$vin['vout']]['value'])
                                                             ->input($is_coinbase ? 0 : $vin['vout'])
                                                             ->address($is_coinbase ? 'coinbase' : explode(':', $prev_txo[$vin['vout']]['scriptPubKey']['addresses'][0])[1])
-                                                            ->string($is_coinbase ? NULL : $vin['scriptSig']['asm']);
+                                                            ->scriptSig($is_coinbase ? NULL : $vin['scriptSig']['asm']);
                                                             
         }
 
@@ -69,7 +69,7 @@ for ($blk = $checkpoint; $blk <= $current_height; $blk++) {
             $out_txs[ ] = (new TxOutput())->value($vout['value'])
                                                                 ->output($vout['n'])
                                                                 ->address(array_key_exists('addresses', $vout['scriptPubKey']) ? explode(':', $vout['scriptPubKey']['addresses'][0])[1] : NULL)
-                                                                ->string($vout['scriptPubKey']['asm']);
+                                                                ->scriptPubKey($vout['scriptPubKey']['asm']);
         }
 
         /* Format and insert */

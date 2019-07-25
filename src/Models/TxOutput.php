@@ -3,28 +3,28 @@
 namespace BCHDB\Models;
 
 class TxOutput {
-    public $value;
-    public $vout;
-    public $address;
-    public $scriptPubKey;
+    public $v;
+    public $o;
+    public $a;
+    public $str;
 
     public function value($value) {
-        $this->value = $value;
+        $this->v = $value;
         return $this;
     }
 
     public function output($vout) {
-        $this->vout = $vout;
+        $this->o = $vout;
         return $this;
     }
 
     public function address($address) {
-        $this->address = $address;
+        $this->a = $address;
         return $this;
     }
 
-    public function string($scriptPubKey) {
-        $this->scriptPubKey = $scriptPubKey;
+    public function scriptPubKey($scriptPubKey) {
+        $this->str = $scriptPubKey;
         return $this;
     }
 }
