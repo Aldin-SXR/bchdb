@@ -18,8 +18,18 @@ class DbClient {
      */
     public function __construct() {
         $this->env = new EnvClient();
-        $uri = $this->env->get('DB_URL')."?retryWrites=true";
-        $this->client = new \MongoDB\Client($uri);
+
+        $uri = 'mongodb://' . $this->env->get('DB_HOST');
+        $uriOptions = [
+          'username' => $this->env->get('DB_USER'),
+          'password' => $this->env->get('DB_PASS'),
+          'authSource' => $this->env->get('DB_NAME')
+        ];
+        $driverOptions = [
+          'ca_file' => $this->env->get('CA_CRT_LOCATION'),
+          'pem_file' => $this->env->get('CERTIFICATE_PEM_LOCATION')
+        ];
+        $this->client = new \MongoDB\Client($uri, $uriOptions, $driverOptions);
     }
 
     /**
