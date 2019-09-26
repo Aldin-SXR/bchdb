@@ -18,16 +18,21 @@ class DbClient {
      */
     public function __construct() {
         $this->env = new EnvClient();
-
-        $uri = 'mongodb://' . $this->env->get('DB_HOST');
+        
+        $uri = $this->env->get('DB_URL');
+        $db_user = $this->env->get('DB_USER');
+        $db_password = $this->env->get('DB_PASSWORD');
+        $db_name = $this->env->get('DB_NAME');
+        $ca_crt_location = $this->env->get('CA_CRT_LOCATION');
+        $certificate_pem_location = $this->env->get('CERTIFICATE_PEM_LOCATION');
         $uriOptions = [
-          'username' => $this->env->get('DB_USER'),
-          'password' => $this->env->get('DB_PASS'),
-          'authSource' => $this->env->get('DB_NAME')
+            'username' => $db_user,
+            'password' => $db_password,
+            'authSource' => $db_name
         ];
         $driverOptions = [
-          'ca_file' => $this->env->get('CA_CRT_LOCATION'),
-          'pem_file' => $this->env->get('CERTIFICATE_PEM_LOCATION')
+            'ca_file' => $ca_crt_location,
+            'pem_file' => $certificate_pem_location
         ];
         $this->client = new \MongoDB\Client($uri, $uriOptions, $driverOptions);
     }
